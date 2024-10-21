@@ -25,7 +25,7 @@ public class CameraControl : MonoBehaviour
 
         Dirlook += Deltalook() * lookSpeed * Time.deltaTime;
         Dirlook.y = Mathf.Clamp(Dirlook.y, -camLock, camLock);
-        
+
         transform.rotation = Quaternion.Euler(0f, Dirlook.x, 0f);
         myCam.transform.rotation = Quaternion.Euler(-Dirlook.y, Dirlook.x, 0f);
     }

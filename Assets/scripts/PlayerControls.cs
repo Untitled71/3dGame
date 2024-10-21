@@ -12,7 +12,7 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    float speed = 10f;
+    public float speed = 5f;
     Rigidbody PlayerRb;
 
 
@@ -24,7 +24,7 @@ public class PlayerControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerRb.AddForce(PlayerDir() * speed);
+        PlayerRb.AddForce(transform.TransformDirection(PlayerDir()) * speed);
     }
 
 
