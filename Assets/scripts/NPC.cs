@@ -17,10 +17,11 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        myScript = GetComponent<NPC>();
+
         myRB = GetComponent<Rigidbody>();
         targetPlayer = GameObject.FindWithTag("Player");
         target1 = GameObject.FindWithTag("Target");
-        myScript = GetComponent<NPC>();
     }
 
     // Update is called once per frame

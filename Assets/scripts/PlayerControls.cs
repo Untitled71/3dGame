@@ -15,6 +15,8 @@ public class PlayerControls : MonoBehaviour
     public float speed = 5f;
     Rigidbody PlayerRb;
 
+    public GameObject bulletPrefab;
+    public Transform firingPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -24,14 +26,24 @@ public class PlayerControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerRb.AddForce(transform.TransformDirection(PlayerDir()).normalized * speed);
-    }
 
+    }
 
     // Update is called once per frame
     void Update()
     {
+        PlayerRb.AddForce(transform.TransformDirection(PlayerDir()).normalized * speed);
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Shot activated");
+            Shoot();
+        }
+    }
 
+    private void Shoot()
+    {
+        Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+        Debug.Log("Bullet Spawned");
     }
 
     Vector3 PlayerDir()

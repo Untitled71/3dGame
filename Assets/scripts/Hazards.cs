@@ -7,24 +7,37 @@ using UnityEngine.UIElements;
 public class Hazards : MonoBehaviour
 {
     public Hazards myScript;
+
+    private Rigidbody rb;
+    public GameObject myPlayer;
     // This will be standard stats necessary for a bullet
     public float speed = 10.0f;
     public float casttime = 0.0f;
     public float lifeTime = 3.0f;
     public int damage = 1;
 
-    public GameObject myPlayer;
-    private Rigidbody2D rb;
 
     public void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        myScript = GetComponent<Hazards>();
+
+        rb = GetComponent<Rigidbody>();
         myPlayer = GameObject.FindWithTag("Player");
     }
 
     public void FixedUpdate()
     {
         rb.velocity = transform.up * speed;
+    }
+
+    public void Update()
+    {
+        lifeTime -= Time.deltaTime;
+
+        if (lifeTime < 0.0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -34,6 +47,11 @@ public class Hazards : MonoBehaviour
             
             Destroy(gameObject);
             Debug.Log("Enemy: " + collision.gameObject.name + " Hit");
+
+        }
+        else if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Shot");
 
         }
         else
