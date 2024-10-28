@@ -11,10 +11,11 @@ public class Hazards : MonoBehaviour
     private Rigidbody rb;
     public GameObject myPlayer;
 
-    public float speed = 10.0f;
-    public float casttime = 0.0f;
-    public float lifeTime = 3.0f;
-    public float dmg_multiplier = 0.5f;
+    // Only to be changed by the childclass
+    protected float speed;
+    protected float casttime;
+    protected float lifeTime;
+    protected float dmg_multiplier;
 
 
     public void Awake()
@@ -23,6 +24,16 @@ public class Hazards : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         myPlayer = GameObject.FindWithTag("Player");
+
+        initiate();
+    }
+
+    protected virtual void initiate()
+    {
+        speed = 10f;
+        casttime = 0.0f;
+        lifeTime = 3.0f;
+        dmg_multiplier = 0.5f;
     }
 
     public void FixedUpdate()

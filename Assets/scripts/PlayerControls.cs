@@ -58,7 +58,7 @@ public class PlayerControls : MonoBehaviour
 
         } else if (Input.GetKeyDown("space") && inair == true && doublejumped == false)
         {
-            Debug.Log("double");
+            //Debug.Log("double");
             PlayerRb.AddForce(Vector3.up * jump, ForceMode.Impulse);
 
             doublejumped = true;

@@ -4,30 +4,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Speedup : Collectables
+public class damageup : Collectables
 {
-    public float original_speed;
-    public float speederupper = 4.0f;
+    protected float original_damage;
+    protected float damageupper = 5.0f;
 
     protected override void initiate()
     {
         Lifetime = 10.0f;
-        effectlast = 4.0f;
+        effectlast = 2.0f;
     }
 
     protected override void item_effect()
     {
-        original_speed = myPlayer.GetComponent<PlayerControls>().speed; // speed
+        original_damage = myPlayer.GetComponent<PlayerControls>().damage; // speed
 
         //Debug.Log("Speeding Up");
-        myPlayer.GetComponent<PlayerControls>().speed *= speederupper;
+        myPlayer.GetComponent<PlayerControls>().damage *= damageupper;
         //Debug.Log(myPlayer.GetComponent<PlayerControls>().speed);
     }
 
     protected override void anti_effect()
     {
         //Debug.Log("Normal Speed");
-        myPlayer.GetComponent<PlayerControls>().speed = original_speed;
+        original_damage = myPlayer.GetComponent<PlayerControls>().damage = original_damage;
     }
 }
 

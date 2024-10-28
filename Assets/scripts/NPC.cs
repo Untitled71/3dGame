@@ -11,9 +11,10 @@ public class NPC : MonoBehaviour
     public GameObject targetPlayer;
     public GameObject target1;
 
+    // public bec to be changed by anyclass (special effects)
     public float distance;
-    public float mySpeed;
-    public float health = 5.0f;
+    public float mySpeed; 
+    public float health;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,10 +24,17 @@ public class NPC : MonoBehaviour
         myRB = GetComponent<Rigidbody>();
         targetPlayer = GameObject.FindWithTag("Player");
         target1 = GameObject.FindWithTag("Target");
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
+        initiate();
+    }
+    protected virtual void initiate()
+    {
+        mySpeed = 0.5f;
+        health = 5.0f;
+
+    }
+        // Update is called once per frame
+        void FixedUpdate()
     {
         distance = Vector3.Distance(transform.position, targetPlayer.transform.position);
         if (health <= 0.0f)

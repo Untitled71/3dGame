@@ -11,10 +11,10 @@ public class Collectables : MonoBehaviour
     public GameObject myPlayer;
     public Rigidbody myRB;
 
-    public float Lifetime = 10.0f;
-    public float effectlast = 4.0f;
-    public float tempefftimer;
+    protected float Lifetime = 10.0f;
+    protected float effectlast = 4.0f;
 
+    public float tempefftimer;
     public bool active_passive;
     protected bool onoff;
 
@@ -23,10 +23,16 @@ public class Collectables : MonoBehaviour
         myRB = GetComponent<Rigidbody>();
         myPlayer = GameObject.FindWithTag("Player");
 
-        tempefftimer = 100f;
-
         active_passive = false;
         onoff = false;
+
+        tempefftimer = 100f;
+    }
+
+    protected virtual void initiate()
+    {
+        Lifetime = 10.0f;
+        effectlast = 4.0f;
     }
 
     public void FixedUpdate()
