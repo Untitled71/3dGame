@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     GameObject myPlayer;
-
+    GameObject EnemyPrefab;
 
 
 

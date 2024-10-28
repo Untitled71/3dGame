@@ -28,7 +28,7 @@ public class NPC : MonoBehaviour
     void FixedUpdate()
     {
         distance = Vector3.Distance(transform.position, targetPlayer.transform.position);
-        Move();
+        //Move();
     }
 
    protected virtual void Move()
