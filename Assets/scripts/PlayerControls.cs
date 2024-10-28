@@ -17,7 +17,12 @@ public class PlayerControls : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firingPoint;
 
-    public float speed = 5f;
+    public float speed = 5.0f;
+    public float jump = 3.0f;
+        public bool inair = false;
+        public bool doublejumped = false;
+        
+
     public float Health = 10.0f;
     public float Mana = 10.0f;
     public float damage = 1.0f;
@@ -38,10 +43,25 @@ public class PlayerControls : MonoBehaviour
     {
         //Debug.Log(speed);
         PlayerRb.AddForce(transform.TransformDirection(PlayerDir()).normalized * speed);
+
         if (Input.GetMouseButtonDown(0))
         {
-            //Debug.Log("Shot activated");
             Shoot();
+        }
+
+        if (Input.GetKeyDown("space") && inair == false)
+        {
+            PlayerRb.AddForce(Vector3.up * jump, ForceMode.Impulse);
+
+            inair = true;
+            doublejumped = false;
+
+        } else if (Input.GetKeyDown("space") && inair == true && doublejumped == false)
+        {
+            Debug.Log("double");
+            PlayerRb.AddForce(Vector3.up * jump, ForceMode.Impulse);
+
+            doublejumped = true;
         }
     }
 
@@ -60,5 +80,14 @@ public class PlayerControls : MonoBehaviour
             return pDir;
         }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "ground") 
+        {
+            inair = false;
+            doublejumped = false;
+            //Debug.Log("on Ground");
+        }
+    }
 
 }
