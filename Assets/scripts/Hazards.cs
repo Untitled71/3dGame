@@ -51,7 +51,7 @@ public class Hazards : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Shot");
+            //Debug.Log("Shot");
 
         }
         else

@@ -32,10 +32,11 @@ public class PlayerControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(speed);
         PlayerRb.AddForce(transform.TransformDirection(PlayerDir()).normalized * speed);
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Shot activated");
+            //Debug.Log("Shot activated");
             Shoot();
         }
     }
@@ -43,7 +44,7 @@ public class PlayerControls : MonoBehaviour
     private void Shoot()
     {
         Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-        Debug.Log("Bullet Spawned");
+        //Debug.Log("Bullet Spawned");
     }
 
     Vector3 PlayerDir()
