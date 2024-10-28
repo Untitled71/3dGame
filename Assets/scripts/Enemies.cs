@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemies : NPC
 {
-
+    public float dmgdealt = 1.0f;
     void Update()
     {
         distance = Vector3.Distance(transform.position, targetPlayer.transform.position);
@@ -43,7 +43,6 @@ public class Enemies : NPC
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
             Destroy(gameObject);
             //Debug.Log("Enemy: " + collision.gameObject.name + " Hit");
 

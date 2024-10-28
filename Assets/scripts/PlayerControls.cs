@@ -88,6 +88,11 @@ public class PlayerControls : MonoBehaviour
             doublejumped = false;
             //Debug.Log("on Ground");
         }
+        if(collision.gameObject.tag == "enemy")
+        {
+            Health -= collision.gameObject.GetComponent<Enemies>().dmgdealt;
+
+        }
     }
 
 }

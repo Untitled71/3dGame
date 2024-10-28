@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         universaltime += Time.deltaTime;
+
+        // SPAWNING
         if(universaltime % 10 <= 0.1f)
         {
             Debug.Log("spawn enemy");
@@ -36,5 +38,11 @@ public class GameManager : MonoBehaviour
             Instantiate(item1, spawner.position, spawner.rotation);
         }
 
+        // CHECK PLAYER ALIVE
+        if(myPlayer.GetComponent<PlayerControls>().Health <= 0.0f)
+        {
+            // change to menu screen
+            Debug.Log("End game");
+        }
     }
 }

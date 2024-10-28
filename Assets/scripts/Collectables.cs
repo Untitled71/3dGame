@@ -75,6 +75,8 @@ public class Collectables : MonoBehaviour
             active_passive = true;
             tempefftimer = effectlast;
 
+            Destroy(GetComponent<Rigidbody>());
+            Destroy(GetComponent<Renderer>());
             Debug.Log("Item Collected: " + gameObject.name + " by [ " + collision.gameObject.name + " ]!");
         }
         else
