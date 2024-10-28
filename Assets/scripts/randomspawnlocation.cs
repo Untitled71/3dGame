@@ -9,7 +9,7 @@ public class randomspawnlocation : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(0,0,mov * Time.deltaTime);
-        transform.Rotate(0,rot * Time.deltaTime, 0);
+        transform.Translate(0,0, mov * (0.1f + Time.deltaTime));
+        transform.Rotate(0, rot * (0.1f + Time.deltaTime), 0);
     }
 }

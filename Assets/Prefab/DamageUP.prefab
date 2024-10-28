@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1132273292059696055
 MeshFilter:
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fd3af72eb31ba7149b2134409acdef73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,9 +149,5 @@ MonoBehaviour:
   myScript: {fileID: 0}
   myPlayer: {fileID: 0}
   myRB: {fileID: 0}
-  Lifetime: 10
-  effectlast: 4
   tempefftimer: 0
   active_passive: 0
-  original_damage: 0
-  damageupper: 2

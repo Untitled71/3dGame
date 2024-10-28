@@ -26,13 +26,14 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         universaltime += Time.deltaTime;
-        if(universaltime % 10 == 0)
+        if(universaltime % 10 <= 0.1f)
         {
-            Instantiate(EnemyPrefab, spawner2);
+            Debug.Log("spawn enemy");
+            Instantiate(EnemyPrefab, spawner2.position, spawner2.rotation);
         }
-        if(universaltime % 30  == 0)
+        if(universaltime % 30  <= 0.1f)
         {
-            Instantiate(item1, spawner);
+            Instantiate(item1, spawner.position, spawner.rotation);
         }
 
     }
