@@ -10,11 +10,11 @@ public class Hazards : MonoBehaviour
 
     private Rigidbody rb;
     public GameObject myPlayer;
-    // This will be standard stats necessary for a bullet
+
     public float speed = 10.0f;
     public float casttime = 0.0f;
     public float lifeTime = 3.0f;
-    public int damage = 1;
+    public float dmg_multiplier = 0.5f;
 
 
     public void Awake()
@@ -44,9 +44,10 @@ public class Hazards : MonoBehaviour
     {
         if (collision.gameObject.tag == "enemy")
         {
-            
+            collision.gameObject.GetComponent<Enemies>().health -= (myPlayer.GetComponent<PlayerControls>().damage * dmg_multiplier);
             Destroy(gameObject);
             Debug.Log("Enemy: " + collision.gameObject.name + " Hit");
+            Debug.Log(collision.gameObject.GetComponent<Enemies>().health);
 
         }
         else if (collision.gameObject.tag == "Player")

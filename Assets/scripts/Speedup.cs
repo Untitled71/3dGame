@@ -1,4 +1,4 @@
-// BULLET OBJECTS
+// COLLECTABLE OBJECTS
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,13 +12,14 @@ public class Speedup : Collectables
     {
         original_speed = myPlayer.GetComponent<PlayerControls>().speed; // speed
 
-        Debug.Log("Speeding Up");
+        //Debug.Log("Speeding Up");
         myPlayer.GetComponent<PlayerControls>().speed *= speederupper;
+        //Debug.Log(myPlayer.GetComponent<PlayerControls>().speed);
     }
 
     protected override void anti_effect()
     {
-        Debug.Log("Normal Speed");
+        //Debug.Log("Normal Speed");
         myPlayer.GetComponent<PlayerControls>().speed = original_speed;
     }
 }

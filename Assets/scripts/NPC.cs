@@ -13,6 +13,7 @@ public class NPC : MonoBehaviour
 
     public float distance;
     public float mySpeed;
+    public float health = 5.0f;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,7 +29,10 @@ public class NPC : MonoBehaviour
     void FixedUpdate()
     {
         distance = Vector3.Distance(transform.position, targetPlayer.transform.position);
-        //Move();
+        if (health <= 0.0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
    protected virtual void Move()

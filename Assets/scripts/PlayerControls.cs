@@ -12,11 +12,15 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    public float speed = 5f;
     Rigidbody PlayerRb;
 
     public GameObject bulletPrefab;
     public Transform firingPoint;
+
+    public float speed = 5f;
+    public float Health = 10.0f;
+    public float Mana = 10.0f;
+    public float damage = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +36,7 @@ public class PlayerControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(speed);
+        //Debug.Log(speed);
         PlayerRb.AddForce(transform.TransformDirection(PlayerDir()).normalized * speed);
         if (Input.GetMouseButtonDown(0))
         {
