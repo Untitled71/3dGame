@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ebd584174ce404b987c9f7f0d2468c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
 --- !u!136 &446592308
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -432,7 +433,7 @@ Transform:
   m_Children:
   - {fileID: 71758839}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &446592312
 MonoBehaviour:
@@ -447,7 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCam: {fileID: 71758838}
-  lookSpeed: 10000
+  lookSpeed: 0.04
   camLock: 90
 --- !u!54 &446592313
 Rigidbody:
@@ -522,7 +523,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &1338339841
 SphereCollider:
@@ -625,7 +626,7 @@ MonoBehaviour:
   myRB: {fileID: 0}
   mySpeed: 1
   target1: {fileID: 0}
-  targetPlayer: {fileID: 0}
+  targetPlayer: {fileID: 446592306}
   myScript: {fileID: 0}
 --- !u!1 &1593521144
 GameObject:
@@ -944,5 +945,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}

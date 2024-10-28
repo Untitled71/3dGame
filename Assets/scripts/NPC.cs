@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public Rigidbody myRB;
-    public float mySpeed;
-    public GameObject target1;
-    public GameObject targetPlayer;
     public NPC myScript;
 
+    public Rigidbody myRB;
+    public GameObject targetPlayer;
+    public GameObject target1;
+
+    public float distance;
+    public float mySpeed;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         myRB = GetComponent<Rigidbody>();
         targetPlayer = GameObject.FindWithTag("Player");
@@ -20,21 +24,24 @@ public class NPC : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        distance = Vector3.Distance(transform.position, targetPlayer.transform.position);
         Move();
     }
 
    protected virtual void Move()
     {
-        //Debug.Log("dw");
+
     }
     protected virtual void Kick()
     {
-        Debug.Log("dw");
+
     }
     protected virtual void Jump()
     {
-        Debug.Log("dw");
+
     }
+    
+
 }

@@ -24,7 +24,7 @@ public class PlayerControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerRb.AddForce(transform.TransformDirection(PlayerDir()) * speed);
+        PlayerRb.AddForce(transform.TransformDirection(PlayerDir()).normalized * speed);
     }
 
 

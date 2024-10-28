@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    GameObject myPlayer;
+
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        myPlayer = GameObject.FindWithTag("Player");
+
     }
 
     // Update is called once per frame
