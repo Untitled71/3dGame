@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         if(myPlayer.GetComponent<PlayerControls>().Score >= 5f)
         {
             spawnInterval = 0.5f;
-            spawnIntervalitem = 5f;
+            spawnIntervalitem = 3f;
         }
     }
 }

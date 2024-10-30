@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class Speedup : Collectables
 {
     public float original_speed;
-    float speederupper = 3.0f;
+    float speederupper = 3f;
 
 
     /////////////////////
@@ -16,7 +16,7 @@ public class Speedup : Collectables
     protected override void initiate()
     {
         Lifetime = 10.0f;
-        effectlast = 4.0f;
+        effectlast = 10.0f;
     }
 
     protected override void item_effect()

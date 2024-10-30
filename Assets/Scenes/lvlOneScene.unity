@@ -906,7 +906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 166825366110879253, guid: 409aa829f29e51e40bb8f5e2acadecae, type: 3}
   firingPoint: {fileID: 440743376}
-  speed: 7
+  speed: 12
   jump: 30
   inair: 0
   doublejumped: 0
