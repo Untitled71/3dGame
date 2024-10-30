@@ -433,7 +433,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5d68d68345698fc42816b3394284c2e0, type: 2}
+  - {fileID: 2100000, guid: 11944439ea7d90741b0b507498025a4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1194,7 +1194,9 @@ MonoBehaviour:
   myTimer: 0
   myfixedTimer: 1
   spawnInterval: 0.5
+  spawnIntervalitem: 20
   spawnTimer: 0
+  spawnTimeritem: 0
 --- !u!4 &702828795
 Transform:
   m_ObjectHideFlags: 0

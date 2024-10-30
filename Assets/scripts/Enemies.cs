@@ -10,7 +10,7 @@ public class Enemies : NPC
         distance = Vector3.Distance(transform.position, targetPlayer.transform.position);
         //Debug.Log(distance);
 
-        if (distance <= 30.0f)
+        if (distance <= 50.0f)
         {
             //Debug.Log("I should follow player!");
             Move();

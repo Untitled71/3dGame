@@ -151,4 +151,6 @@ MonoBehaviour:
   targetPlayer: {fileID: 0}
   target1: {fileID: 0}
   distance: 0
-  mySpeed: 0.3
+  mySpeed: 3
+  health: 10
+  dmgdealt: 1

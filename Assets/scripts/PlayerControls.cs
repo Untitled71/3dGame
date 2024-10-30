@@ -23,7 +23,7 @@ public class PlayerControls : MonoBehaviour
         public bool doublejumped = false;
 
     public int Score = 0;
-    public float Health = 10.0f;
+    public float Health = 3.0f;
     public float Mana = 10.0f;
     public float damage = 1.0f;
 

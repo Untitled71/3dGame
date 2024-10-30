@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class Speedup : Collectables
 {
     public float original_speed;
-    public float speederupper = 4.0f;
+    float speederupper = 3.0f;
 
 
     /////////////////////

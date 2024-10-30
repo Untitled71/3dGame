@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
     {
 
         pHealth.text = "Health: " + myPlayer.GetComponent<PlayerControls>().Health.ToString();
-        damagemeter.text = "Health: " + myPlayer.GetComponent<PlayerControls>().damage.ToString();
-        speedmeter.text = "Health: " + myPlayer.GetComponent<PlayerControls>().speed.ToString();
+        damagemeter.text = "dmg: " + myPlayer.GetComponent<PlayerControls>().damage.ToString();
+        speedmeter.text = "speed: " + myPlayer.GetComponent<PlayerControls>().speed.ToString();
         cScore.text = "Score: " + myPlayer.GetComponent<PlayerControls>().Score.ToString();
 
         myTimer += Time.deltaTime;
@@ -68,11 +68,11 @@ public class GameManager : MonoBehaviour
         if (spawnTimeritem >= spawnIntervalitem)
         {
             spawnTimeritem = 0f;
-            Vector3 SpawnPos = new Vector3(UnityEngine.Random.Range(-48, 48), 2, UnityEngine.Random.Range(-48, 48));
+            Vector3 SpawnPos = new Vector3(UnityEngine.Random.Range(-5, 5), 2, UnityEngine.Random.Range(-5, 5));
             spawner.transform.position = SpawnPos;
 
             System.Random rand = new System.Random();
-            int decision = rand.Next(0, 1); 
+            int decision = rand.Next(0, 2); 
             if(decision == 0)
             {
                 Instantiate(item1, spawner.transform.position, spawner.transform.rotation);

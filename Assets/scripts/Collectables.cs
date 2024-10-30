@@ -15,6 +15,7 @@ public class Collectables : MonoBehaviour
     protected float effectlast = 4.0f;
 
     public float tempefftimer;
+    public bool true_collected = false;
     public bool active_passive;
     protected bool onoff;
 
@@ -71,9 +72,14 @@ public class Collectables : MonoBehaviour
         {
             //Collect Item
             // Destroy(gameObject); // will end effect wont it?
-            item_effect();
-            active_passive = true;
+
             tempefftimer = effectlast;
+            if (true_collected == false)
+            {
+                item_effect();
+                active_passive = true;
+                true_collected = true;
+            }
 
             Destroy(GetComponent<Rigidbody>());
             Destroy(GetComponent<Renderer>());
