@@ -23,7 +23,7 @@ public class CameraControl : MonoBehaviour
     {
         onStartTimer += Time.deltaTime;
 
-        Dirlook += Deltalook() * 10000 * lookSpeed * Time.deltaTime;
+        Dirlook += Deltalook() * 1000 * lookSpeed * Time.deltaTime;
         Dirlook.y = Mathf.Clamp(Dirlook.y, -camLock, camLock);
 
         transform.rotation = Quaternion.Euler(0f, Dirlook.x, 0f);

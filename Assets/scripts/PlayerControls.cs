@@ -21,8 +21,8 @@ public class PlayerControls : MonoBehaviour
     public float jump = 3.0f;
         public bool inair = false;
         public bool doublejumped = false;
-        
 
+    public int Score = 0;
     public float Health = 10.0f;
     public float Mana = 10.0f;
     public float damage = 1.0f;
@@ -91,7 +91,8 @@ public class PlayerControls : MonoBehaviour
         if(collision.gameObject.tag == "enemy")
         {
             Health -= collision.gameObject.GetComponent<Enemies>().dmgdealt;
-
+            Score--;
+            Debug.Log(Health);
         }
     }
 

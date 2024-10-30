@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 832a06ba24246cc4a835421a702cb0f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,8 +149,6 @@ MonoBehaviour:
   myScript: {fileID: 0}
   myPlayer: {fileID: 0}
   myRB: {fileID: 0}
-  Lifetime: 10
-  effectlast: 4
   tempefftimer: 0
   active_passive: 0
   original_speed: 0

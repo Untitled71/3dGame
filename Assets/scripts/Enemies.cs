@@ -10,7 +10,7 @@ public class Enemies : NPC
         distance = Vector3.Distance(transform.position, targetPlayer.transform.position);
         //Debug.Log(distance);
 
-        if (distance <= 7.0f)
+        if (distance <= 30.0f)
         {
             //Debug.Log("I should follow player!");
             Move();
@@ -39,6 +39,11 @@ public class Enemies : NPC
         //Debug.Log("STOPPPED");
     }
 
+    protected override void ondeath()
+    {
+        targetPlayer.GetComponent<PlayerControls>().Score++;
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -47,8 +52,10 @@ public class Enemies : NPC
             //Debug.Log("Enemy: " + collision.gameObject.name + " Hit");
 
         }
-        else
+        else if (collision.gameObject.tag == "enemy")
         {
+            transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            
             //Destroy(gameObject);
         }
     }

@@ -39,8 +39,14 @@ public class NPC : MonoBehaviour
         distance = Vector3.Distance(transform.position, targetPlayer.transform.position);
         if (health <= 0.0f)
         {
+            ondeath();
             Destroy(gameObject);
         }
+    }
+
+   protected virtual void ondeath()
+    {
+
     }
 
    protected virtual void Move()
