@@ -1,6 +1,7 @@
 // STANDARD BULLET OBJECT ATTRIBUTES
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -60,6 +61,8 @@ public class Hazards : MonoBehaviour
             Debug.Log("Enemy: " + collision.gameObject.name + " Hit");
             Debug.Log(collision.gameObject.GetComponent<Enemies>().health);
 
+
+            //Instantiate();
         }
         else if (collision.gameObject.tag == "Player")
         {
@@ -72,4 +75,5 @@ public class Hazards : MonoBehaviour
         }
     }
 
+    /// if damage, hit damage numbers, increase damage???!
 }

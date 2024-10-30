@@ -13,7 +13,7 @@ public class mainmenucontroller : MonoBehaviour
     //public GameObject gm1;
     public void Loadscene()
     {
-        SceneManager.LoadScene("lvlOneScene", LoadSceneMode.Single);
+        SceneManager.LoadScene(Scene1, LoadSceneMode.Single);
     }
 
     public void CloseGame()

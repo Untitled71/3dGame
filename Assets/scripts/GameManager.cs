@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
 {
     float universaltime = 0f;
 
+    public TextMeshProUGUI pHealth;
+    public TextMeshProUGUI cScore;
+    public TextMeshProUGUI speedmeter;
+    public TextMeshProUGUI damagemeter;
+
     public GameObject myPlayer;
     public GameObject EnemyPrefab;
     public GameObject CompanionPrefab;
@@ -18,11 +23,14 @@ public class GameManager : MonoBehaviour
 
     public Transform spawner;
     public Transform spawner2;
+    public Transform spawner3;
 
     public float myTimer = 0f;
     public float myfixedTimer = 1f;
     public float spawnInterval = 5f;
+    public float spawnIntervalitem = 20f;
     public float spawnTimer = 0f;
+    public float spawnTimeritem = 0f;
     // Start is called before the first frame update
 
     void Start()
@@ -34,12 +42,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //add time passed between frames
+
+        pHealth.text = "Health: " + myPlayer.GetComponent<PlayerControls>().Health.ToString();
+        damagemeter.text = "Health: " + myPlayer.GetComponent<PlayerControls>().damage.ToString();
+        speedmeter.text = "Health: " + myPlayer.GetComponent<PlayerControls>().speed.ToString();
+        cScore.text = "Score: " + myPlayer.GetComponent<PlayerControls>().Score.ToString();
+
         myTimer += Time.deltaTime;
 
-        //track enemy spawn time here
         spawnTimer += Time.deltaTime;
-        //once the interval is hit, trigger an enemy spawn and reset timer
+        spawnTimeritem += Time.deltaTime;
+
         if (spawnTimer >= spawnInterval)
         {
             spawnTimer = 0f;
@@ -51,12 +64,28 @@ public class GameManager : MonoBehaviour
             spawner.transform.position = SpawnPos;
             Instantiate(EnemyPrefab, spawner.transform.position, spawner.transform.rotation);
 
-            //Debug.Log("enemy spawn");
         }
-        //because gameManager has an explicit connection to the player, we
-        //can reference the player components, including WASD.cs, and find our score
+        if (spawnTimeritem >= spawnIntervalitem)
+        {
+            spawnTimeritem = 0f;
+            Vector3 SpawnPos = new Vector3(UnityEngine.Random.Range(-48, 48), 2, UnityEngine.Random.Range(-48, 48));
+            spawner.transform.position = SpawnPos;
 
-        if(myPlayer.GetComponent<PlayerControls>().Health <= 0.0f)
+            System.Random rand = new System.Random();
+            int decision = rand.Next(0, 1); 
+            if(decision == 0)
+            {
+                Instantiate(item1, spawner.transform.position, spawner.transform.rotation);
+            }
+            else if (decision == 1)
+            {
+                Instantiate(item2, spawner.transform.position, spawner.transform.rotation);
+            }
+
+        }
+
+
+        if (myPlayer.GetComponent<PlayerControls>().Health <= 0.0f)
         {
             // end game
             universevar.totalScore = myPlayer.GetComponent<PlayerControls>().Score;
@@ -66,9 +95,10 @@ public class GameManager : MonoBehaviour
 
 
 
-        if(myPlayer.GetComponent<PlayerControls>().Score == 5)
+        if(myPlayer.GetComponent<PlayerControls>().Score >= 5f)
         {
-            spawnInterval = 2f;
+            spawnInterval = 0.5f;
+            spawnIntervalitem = 5f;
         }
     }
 }
