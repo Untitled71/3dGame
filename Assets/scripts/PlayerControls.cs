@@ -14,14 +14,17 @@ public class PlayerControls : MonoBehaviour
 {
     Rigidbody PlayerRb;
 
+    // EXTERNAL OBJECTS~
     public GameObject bulletPrefab;
     public Transform firingPoint;
 
+    // MOVEMENT VAR
     public float speed = 5.0f;
     public float jump = 3.0f;
         public bool inair = false;
         public bool doublejumped = false;
 
+    // PLAYER STATS
     public int Score = 0;
     public float Health = 3.0f;
     public float Mana = 10.0f;
@@ -38,31 +41,37 @@ public class PlayerControls : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
-    {
-        //Debug.Log(speed);
+    {   //Debug.Log(speed);
+        // Movement
         PlayerRb.AddForce(transform.TransformDirection(PlayerDir()).normalized * speed);
 
+
         if (Input.GetMouseButtonDown(0))
-        {
+        { // INPUT MOUSE ACTION
             Shoot();
         }
-
         if (Input.GetKeyDown("space") && inair == false)
-        {
+        { // JUMP 1 (RIGIDBODY FORCE)
             PlayerRb.AddForce(Vector3.up * jump, ForceMode.Impulse);
-
-            inair = true;
             doublejumped = false;
-
+            inair = true;
         } else if (Input.GetKeyDown("space") && inair == true && doublejumped == false)
-        {
-            //Debug.Log("double");
+        { // JUMP 2 (RIGIDBODY FORCE)
             PlayerRb.AddForce(Vector3.up * jump, ForceMode.Impulse);
-
             doublejumped = true;
         }
+    }
+
+    // MOVEMENT
+    Vector3 PlayerDir()
+    { 
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        Vector3 pDir = new Vector3(x, 0, z);
+
+        return pDir;
     }
 
     private void Shoot()
@@ -71,14 +80,6 @@ public class PlayerControls : MonoBehaviour
         //Debug.Log("Bullet Spawned");
     }
 
-    Vector3 PlayerDir()
-        {
-            float x = Input.GetAxis("Horizontal");
-            float z = Input.GetAxis("Vertical");
-            Vector3 pDir = new Vector3(x, 0, z);
-
-            return pDir;
-        }
 
     public void OnCollisionEnter(Collision collision)
     {

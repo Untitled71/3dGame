@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Enemies : NPC
 {
+    public GameObject blood;
+
     public float dmgdealt = 1.0f;
+    public float enemyspeed = 5f;
+    public float enemyhealth = 2.5f; 
+
     void Update()
     {
         distance = Vector3.Distance(transform.position, targetPlayer.transform.position);
@@ -20,6 +25,14 @@ public class Enemies : NPC
            Stop();
            //Debug.Log("I cannot see player!");
         }
+    }
+
+    protected override void initiate()
+    {
+
+
+        mySpeed = enemyspeed;
+        health = enemyhealth;
     }
 
     // Update is called once per frame
@@ -58,5 +71,10 @@ public class Enemies : NPC
             
             //Destroy(gameObject);
         }
+        else if (collision.gameObject.tag == "hazard") 
+        { 
+             Instantiate(blood, gameObject.transform.position, Quaternion.identity);
+        }
+
     }
 }

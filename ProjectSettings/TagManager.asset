@@ -9,6 +9,7 @@ TagManager:
   - ground
   - Target
   - companion
+  - hazard
   layers:
   - Default
   - TransparentFX

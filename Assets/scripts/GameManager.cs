@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     public float myTimer = 0f;
     public float myfixedTimer = 1f;
-    public float spawnInterval = 5f;
+    public float spawnInterval = 1.0f;
     public float spawnIntervalitem = 20f;
     public float spawnTimer = 0f;
     public float spawnTimeritem = 0f;
@@ -95,10 +95,15 @@ public class GameManager : MonoBehaviour
 
 
 
-        if(myPlayer.GetComponent<PlayerControls>().Score >= 5f)
+        if(myPlayer.GetComponent<PlayerControls>().Score >= 10f)
+        {
+            spawnInterval = 0.2f;
+            spawnIntervalitem = 0.4f;
+        }
+        else if (myPlayer.GetComponent<PlayerControls>().Score >= 5f)
         {
             spawnInterval = 0.5f;
-            spawnIntervalitem = 3f;
+            spawnIntervalitem = 0.7f;
         }
     }
 }

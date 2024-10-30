@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class damageup : Collectables
 {
     protected float original_damage;
-    protected float damageupper = 7.0f;
+    protected float damageupper = 100.0f;
 
     protected override void initiate()
     {
