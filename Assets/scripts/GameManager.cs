@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
-    float universaltime = 0f;
+    //float universaltime = 0f;
 
     public TextMeshProUGUI pHealth;
     public TextMeshProUGUI cScore;
@@ -56,10 +56,10 @@ public class GameManager : MonoBehaviour
         if (spawnTimer >= spawnInterval)
         {
             spawnTimer = 0f;
-            Vector3 SpawnPos = new Vector3(UnityEngine.Random.Range(-48, 48), 2, UnityEngine.Random.Range(-48, 48));
+            Vector3 SpawnPos = new Vector3(UnityEngine.Random.Range(-48, 48), 40, UnityEngine.Random.Range(-48, 48));
             if (myPlayer.transform.position == SpawnPos)
             {
-                SpawnPos = new Vector3(UnityEngine.Random.Range(-48, 48), 2, UnityEngine.Random.Range(-48, 48));
+                SpawnPos = new Vector3(UnityEngine.Random.Range(-48, 48), 40, UnityEngine.Random.Range(-48, 48));
             }
             spawner.transform.position = SpawnPos;
             Instantiate(EnemyPrefab, spawner.transform.position, spawner.transform.rotation);
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         if (spawnTimeritem >= spawnIntervalitem)
         {
             spawnTimeritem = 0f;
-            Vector3 SpawnPos = new Vector3(UnityEngine.Random.Range(-5, 5), 2, UnityEngine.Random.Range(-5, 5));
+            Vector3 SpawnPos = new Vector3(UnityEngine.Random.Range(-5, 5), 40, UnityEngine.Random.Range(-5, 5));
             spawner.transform.position = SpawnPos;
 
             System.Random rand = new System.Random();

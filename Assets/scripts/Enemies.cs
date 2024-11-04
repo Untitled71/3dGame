@@ -7,8 +7,8 @@ public class Enemies : NPC
     public GameObject blood;
 
     public float dmgdealt = 1.0f;
-    public float enemyspeed = 5f;
-    public float enemyhealth = 2.5f; 
+    protected float enemyspeed = 0.45f;
+    protected float enemyhealth = 2.5f; 
 
     void Update()
     {
